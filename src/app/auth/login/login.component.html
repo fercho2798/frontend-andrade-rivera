@@ -1,7 +1,16 @@
-<br><br><br>
+<!-- <p-menubar >
+    <ng-template pTemplate="start" >
+        <img src="https://logos-marcas.com/wp-content/uploads/2020/05/Uber-Logo.png" height="40" class="p-mr-2">
+    </ng-template>
+    <ng-template pTemplate="end" >
+        <input type="text" pInputText placeholder="Search">
+    </ng-template>
+</p-menubar> -->
+
+<br><br><br><br><br><br>
 <div class="card flex justify-content-center">
     <div class="border-round-right  shadow-1 m-2 flex align-items-center justify-content-center"
-    style="min-width: 490px; min-height: 100px; background-color: var(--blue-100);">
+    style="min-width: 465px; min-height: 100px; background-color: var(--blue-100);">
     <h1>LOGIN</h1>
 </div>
    
@@ -13,7 +22,7 @@
             <input id="float-input" type="text" pInputText>
             <label for="float-input">Username</label>
         </span><br>
-        <p-password [(ngModel)]="value3" [toggleMask]="true"></p-password>
+        <input type="password" pPassword />
         <br><br>
         <button pButton type="button" class="Primary">Login</button>
     </div>

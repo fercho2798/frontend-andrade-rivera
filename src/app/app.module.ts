@@ -7,13 +7,21 @@ import { AppComponent } from './app.component';
 import {ButtonModule} from 'primeng/button';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import { FormsModule } from '@angular/forms';
+import {InputTextModule} from 'primeng/inputtext';
+import {PasswordModule} from 'primeng/password';
+import {MenubarModule} from 'primeng/menubar';
+import {SlideMenuModule} from 'primeng/slidemenu';
 
+
+import { AccesDeniedComponent } from './acces-denied/acces-denied.component';
+import { UnderMaintenanceComponent } from './under-maintenance/under-maintenance.component';
 import { ProjectComponent } from './project/project.component';
 import { AuthorComponent } from './author/author.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MainComponent } from './main/main.component';
-import { AccesDeniedComponent } from './acces-denied/acces-denied.component';
-import { UnderMaintenanceComponent } from './under-maintenance/under-maintenance.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
+
 
 @NgModule({
   declarations: [
@@ -23,14 +31,19 @@ import { UnderMaintenanceComponent } from './under-maintenance/under-maintenance
     NotFoundComponent,
     MainComponent,
     AccesDeniedComponent,
-    UnderMaintenanceComponent
+    UnderMaintenanceComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ButtonModule,
     InputSwitchModule, 
-    FormsModule
+    FormsModule,
+    InputTextModule,
+    PasswordModule,
+    MenubarModule,
+    SlideMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
