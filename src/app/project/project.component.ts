@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuItem} from 'primeng/api';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-project',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectComponent implements OnInit {
   checked: boolean= false;
+  items: MenuItem[] = [];
+  subscription: Subscription = new Subscription;
 
   constructor() { }
-  ngOnInit(): void {
+ 
+
+  ngOnInit() {
+      this.items = [
+          {label: 'Step 1'},
+          {label: 'Step 2'},
+          {label: 'Step 3'}
+      ];
   }
 
 }

@@ -12,6 +12,7 @@ import {PasswordModule} from 'primeng/password';
 import {MenubarModule} from 'primeng/menubar';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import {CardModule} from 'primeng/card';
+import {StepsModule} from 'primeng/steps';
 
 
 
@@ -46,7 +47,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     PasswordModule,
     MenubarModule,
     SlideMenuModule,
-    CardModule
+    CardModule,
+    StepsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -30,4 +30,12 @@ export class NavbarComponent implements OnInit {
       ];
       
   }
+
+  goCNN() {
+    window.location.href='login';
+}
+
+goinit() {
+  window.location.href='';
+}
 }
