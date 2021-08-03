@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import {ButtonModule} from 'primeng/button';
 import {InputSwitchModule} from 'primeng/inputswitch';
@@ -48,7 +49,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     MenubarModule,
     SlideMenuModule,
     CardModule,
-    StepsModule
+    StepsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

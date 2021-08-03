@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from 'primeng/api';
-import { Subscription } from 'rxjs';
+import { ProjectModel } from '../models/project.model';
+import { ProjectHttpService } from '../services/project-http.service';
 
 
 @Component({
@@ -9,19 +9,76 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-  checked: boolean= false;
-  items: MenuItem[] = [];
-  subscription: Subscription = new Subscription;
-
-  constructor() { }
  
+  
 
+ 
+  project: ProjectModel = {};
+  projects:ProjectModel[]=[];
+
+  constructor(private projectHttpService:ProjectHttpService) {
+
+
+   }
+ 
   ngOnInit() {
-      this.items = [
-          {label: 'Step 1'},
-          {label: 'Step 2'},
-          {label: 'Step 3'}
-      ];
+  this.getProjects();
+  }
+
+  getProjects():void{
+    this.projectHttpService.getAll().subscribe(
+      response => {
+        console.log(response);
+
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
+  getProject():void{
+    this.projectHttpService.getOne(this.project.id).subscribe(
+      response => {
+        console.log(response);
+
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
+  postProjects():void{
+    this.projectHttpService.create(this.project).subscribe(
+      response => {
+        console.log(response);
+
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
+  updateProjects():void{
+    this.projectHttpService.update(this.project.id, this.project).subscribe(
+      response => {
+        console.log(response);
+
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
+  deleteProjects():void{
+    this.projectHttpService.delete(this.project.id).subscribe(
+      response => {
+        console.log(response);
+
+      },
+      error=>{
+        console.log(error);
+      }
+    )
   }
 
 }
