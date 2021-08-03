@@ -1,20 +1,16 @@
 <br><br><br>
 <div class="card flex justify-content-center">
-    <div class="border-round-right  shadow-1 m-2 flex align-items-center justify-content-center"
-    style="min-width: 490px; min-height: 100px; background-color: var(--blue-100);">
-    <h1>LOGIN</h1>
-</div>
-   
-</div>
-<div class="card flex justify-content-center" >
-    <div class="border-round-right  shadow-1 m-2 flex align-items-center justify-content-center"
-        style="min-width: 100px; min-height: 500px; background-color: var(--blue-100);">
-        <span class="p-float-label">
-            <input id="float-input" type="text" pInputText>
-            <label for="float-input">Username</label>
-        </span><br>
-        <p-password [(ngModel)]="value3" [toggleMask]="true"></p-password>
-        <br><br>
-        <button pButton type="button" class="Primary">Login</button>
-    </div>
+
+    <p-card header="esta es una Informacion chevere" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="assets/showcase/images/usercard.png">
+        </ng-template>
+        <p>"Todo es divertido, siempre y cuando le ocurra a otra persona"</p>
+        <p>"Las mejores cosas de la vida te deshacen el pelo"</p>
+        <p>"No soy vago, estoy en modo ahorro de energía"</p>
+        <p>"Lo malo no es vivir en las nubes, sino bajar"</p>
+        <ng-template pTemplate="footer">
+            <p-button label="Empezar" icon="pi pi-check" (click)="goCNN()"></p-button>
+        </ng-template>
+    </p-card>
 </div>

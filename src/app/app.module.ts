@@ -11,6 +11,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
 import {MenubarModule} from 'primeng/menubar';
 import {SlideMenuModule} from 'primeng/slidemenu';
+import {CardModule} from 'primeng/card';
+
 
 
 import { AccesDeniedComponent } from './acces-denied/acces-denied.component';
@@ -43,7 +45,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     InputTextModule,
     PasswordModule,
     MenubarModule,
-    SlideMenuModule
+    SlideMenuModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

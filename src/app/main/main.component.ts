@@ -13,5 +13,8 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   
   }
+  goCNN() {
+    window.location.href='projects';
+}
 
 }
