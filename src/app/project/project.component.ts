@@ -29,6 +29,7 @@ export class ProjectComponent implements OnInit {
     this.projectHttpService.getAll().subscribe(
       response => {
         console.log(response);
+        return this.project = response['data'];
 
       },
       error=>{
@@ -40,6 +41,7 @@ export class ProjectComponent implements OnInit {
     this.projectHttpService.getOne(this.project.id).subscribe(
       response => {
         console.log(response);
+        return this.project = response['data'];
 
       },
       error=>{
@@ -51,6 +53,7 @@ export class ProjectComponent implements OnInit {
     this.projectHttpService.create(this.project).subscribe(
       response => {
         console.log(response);
+        return this.project = response['data'];
 
       },
       error=>{
@@ -62,6 +65,7 @@ export class ProjectComponent implements OnInit {
     this.projectHttpService.update(this.project.id, this.project).subscribe(
       response => {
         console.log(response);
+        return this.project = response['data'];
 
       },
       error=>{
@@ -73,6 +77,7 @@ export class ProjectComponent implements OnInit {
     this.projectHttpService.delete(this.project.id).subscribe(
       response => {
         console.log(response);
+        return this.project = response['data'];
 
       },
       error=>{
