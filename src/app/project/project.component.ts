@@ -23,6 +23,7 @@ export class ProjectComponent implements OnInit {
  
   ngOnInit() {
   this.getProjects();
+  this.getProject();
   }
 
   getProjects():void{
