@@ -1,20 +1,59 @@
-<h1>author</h1>
-{{author | json}}
+<p-card>
+    <ng-template pTemplate="header">
+        Formulario Reactivo xd
+    </ng-template>
+    <div class="p-fluid">
+        <form [formGroup]="formAuthor" (ngSubmit)="onSubmit">
+            <div class="p-field">
+                <label for="id">ID:</label>
+                <input pInputText type="text" id="id" formControlName="id">
+            </div>
+            <div class="p-field">
 
-<h1>authors</h1>
+            </div>
+            <div class="p-field">
+                <label for="description">identidad:</label>
+                <input pInputText type="text" id="description" formControlName="identification">
+            </div>
+     
+            <div class="p-field">
+                <button pButton type="submit" label="Guardar" icon="pi pi-save" (click)="onSubmit()"> </button>
+            </div>
+        </form>
+    </div>
 
-{{authors | json}}
+
+</p-card>
+
+
+
+
+<br>
+
+<h1>Authors</h1>
 
 <table>
     <tr>
-        <th></th>
+        <th>
+            id
+        </th>
+        <th>
+            edad
+        </th>
     </tr>
-    <tr *ngFor="let author of authors">
+    <tr *ngFor="let author of authors ">
         <td>
             {{author.id}}
         </td>
         <td>
-            {{author.names}}
+            {{author.age}}
         </td>
-  
+        <td>
+            <button pButton type="button" label="Mostrar" (click)="selectAuthor(author)"></button>
+            <button pButton type="button" label="eliminar" class="p-button-danger" (click)="deleteAuthor(author)"></button>
+            <button pButton type="button" label="modificar" class="p-button-warning"
+                (click)="updateAuthor(author)"></button>
+        </td>
     </tr>
+
+</table>
