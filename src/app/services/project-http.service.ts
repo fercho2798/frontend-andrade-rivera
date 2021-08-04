@@ -19,7 +19,7 @@ export class ProjectHttpService {
    }
 
   getOne(id: number){
-    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects'+id;
+    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/'+id;
     return this.httpClient.get(url)
   }
 
@@ -29,12 +29,12 @@ export class ProjectHttpService {
   }
 
   update(id:number, project:ProjectModel){
-    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects'+id;
+    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/'+id;
     return this.httpClient.put(url,project)
   }
 
   delete(id:number){
-    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects'+id;
+    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/'+id;
     return this.httpClient.delete(url)
   }
   

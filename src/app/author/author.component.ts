@@ -26,7 +26,7 @@ export class AuthorComponent implements OnInit {
     this.authorHttpService.getAll().subscribe(
       response => {
         console.log(response);
-        return this.author = response['data'];
+         this.author = response['data'];
 
       },
       error=>{
@@ -38,7 +38,7 @@ export class AuthorComponent implements OnInit {
     this.authorHttpService.getOne(this.author.id).subscribe(
       response => {
         console.log(response);
-        return this.author = response['data'];
+         this.author = response['data'];
 
       },
       error=>{
@@ -50,7 +50,7 @@ export class AuthorComponent implements OnInit {
     this.authorHttpService.create(this.author).subscribe(
       response => {
         console.log(response);
-        return this.author = response['data'];
+         this.author = response['data'];
 
       },
       error=>{
@@ -62,7 +62,7 @@ export class AuthorComponent implements OnInit {
     this.authorHttpService.update(this.author.id, this.author).subscribe(
       response => {
         console.log(response);
-        return this.author = response['data'];
+         this.author = response['data'];
 
       },
       error=>{
@@ -74,7 +74,7 @@ export class AuthorComponent implements OnInit {
     this.authorHttpService.delete(this.author.id).subscribe(
       response => {
         console.log(response);
-        return this.author = response['data'];
+         this.author = response['data'];
 
       },
       error=>{

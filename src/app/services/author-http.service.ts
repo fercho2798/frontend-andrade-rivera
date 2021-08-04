@@ -14,12 +14,12 @@ export class AuthorHttpService {
 
   }
 
-  getAll() {
+  getAll(): Observable< AuthorModel> {
     return this.httpClient.get('http://backend-andrade-rivera.test/api/v1/public/projects/1/authors')
   }
 
   getOne(id: number) {
-    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/1/authors' + id;
+    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/1/authors/' + id;
     return this.httpClient.get(url)
   }
 
@@ -29,12 +29,12 @@ export class AuthorHttpService {
   }
 
   update(id: number, author: AuthorModel) {
-    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/1/authors' + id;
+    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/1/authors/' + id;
     return this.httpClient.put(url, author)
   }
 
   delete(id: number) {
-    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/1/authors' + id;
+    const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/1/authors/' + id;
     return this.httpClient.delete(url)
   }
 }
