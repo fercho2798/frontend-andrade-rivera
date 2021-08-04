@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProjectModel } from '../models/project.model';
 import { ProjectHttpService } from '../services/project-http.service';
+import { variable } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -9,82 +11,135 @@ import { ProjectHttpService } from '../services/project-http.service';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
- 
-  
-
- 
-  project: ProjectModel = {};
-  projects:ProjectModel[]=[];
-
-  constructor(private projectHttpService:ProjectHttpService) {
 
 
-   }
- 
+
+
+  selectedProject: ProjectModel = {};
+
+  //array de libros
+
+  projects: ProjectModel[] = [];
+
+  formProject: FormGroup;
+
+  constructor(private projectHttpService: ProjectHttpService, private formBuilder: FormBuilder) {
+
+    this.formProject = this.newFormProject();
+  }
+
   ngOnInit() {
-  this.getProjects();
-  this.getProject();
+    this.getProjects();
+    this.getProject();
   }
 
-  getProjects():void{
+  newFormProject(): FormGroup {
+    return this.formBuilder.group(
+      {
+        id: [null],
+        code: [null, [Validators.required, Validators.maxLength(5), Validators.minLength(3)]],
+        date: [null, ],
+        description: [null],
+        published: [null],
+        title: [null, [Validators.required, Validators.minLength(5)] ]
+      }
+    )
+  }
+
+
+
+
+  getProjects(): void {
+
     this.projectHttpService.getAll().subscribe(
-      response => {
-        console.log(response);
-        return this.project = response['data'];
 
+      response => {
+
+        this.projects = response['data'] as ProjectModel[];
       },
-      error=>{
-        console.log(error);
+
+      error => {
+        console.log(error)
       }
-    )
+    );
   }
-  getProject():void{
-    this.projectHttpService.getOne(this.project.id).subscribe(
-      response => {
-        console.log(response);
-        return this.project = response['data'];
+  getProject(): void {
+    const id = 1;
+    this.projectHttpService.getOne(id).subscribe(
 
+      response => {
+
+        this.selectedProject = response['data'];
       },
-      error=>{
-        console.log(error);
+
+      error => {
+        console.log(error)
       }
-    )
+    );
   }
-  postProjects():void{
-    this.projectHttpService.create(this.project).subscribe(
-      response => {
-        console.log(response);
-        return this.project = response['data'];
+  
+  createProject(): void {
 
+    this.projectHttpService.create(this.selectedProject).subscribe(
+
+      response => {
+        console.log(response)
       },
-      error=>{
-        console.log(error);
+
+      error => {
+        console.log(error)
       }
-    )
+    );
   }
-  updateProjects():void{
-    this.projectHttpService.update(this.project.id, this.project).subscribe(
-      response => {
-        console.log(response);
-        return this.project = response['data'];
 
+  updateProject(project: ProjectModel): void {
+
+    this.projectHttpService.update(project.id, project).subscribe(
+
+      response => {
+        console.log(response)
       },
-      error=>{
-        console.log(error);
+
+      error => {
+        console.log(error)
       }
-    )
+    );
   }
-  deleteProjects():void{
-    this.projectHttpService.delete(this.project.id).subscribe(
-      response => {
-        console.log(response);
-        return this.project = response['data'];
 
+  deleteProject(project: ProjectModel): void {
+
+    this.projectHttpService.delete(project.id).subscribe(
+
+      response => {
+        console.log(response)
+        this.removeProject(project);
       },
-      error=>{
-        console.log(error);
+
+      error => {
+        console.log(error)
       }
-    )
+    );
+  }
+
+  removeProject(project: ProjectModel){
+    this.projects = this.projects.filter(element => element.id !== project.id);
+  }
+
+
+  selectProject(project: ProjectModel) {
+    console.log(project)
+    this.formProject.patchValue(project)
+  }
+
+  onSubmit(){
+    console.log('subido!')
+  }
+
+  get idField(){
+    return this.formProject.controls['id']
+  }
+  get codeField(){
+    return this.formProject.controls['code']
   }
 
 }

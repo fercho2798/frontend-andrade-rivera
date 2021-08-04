@@ -5,3 +5,16 @@
 
 {{authors | json}}
 
+<table>
+    <tr>
+        <th></th>
+    </tr>
+    <tr *ngFor="let author of authors">
+        <td>
+            {{author.id}}
+        </td>
+        <td>
+            {{author.names}}
+        </td>
+  
+    </tr>

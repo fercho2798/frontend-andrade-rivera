@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {ButtonModule} from 'primeng/button';
 import {InputSwitchModule} from 'primeng/inputswitch';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
 import {MenubarModule} from 'primeng/menubar';
@@ -50,7 +50,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     SlideMenuModule,
     CardModule,
     StepsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
