@@ -14,6 +14,8 @@ import {MenubarModule} from 'primeng/menubar';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import {CardModule} from 'primeng/card';
 import {StepsModule} from 'primeng/steps';
+import {CalendarModule} from 'primeng/calendar';
+
 
 
 
@@ -24,6 +26,7 @@ import { AuthorComponent } from './author/author.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -40,6 +43,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ButtonModule,
     InputSwitchModule, 
@@ -52,7 +56,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     StepsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

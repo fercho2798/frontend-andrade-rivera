@@ -19,8 +19,8 @@ export class AuthorComponent implements OnInit {
    }
  
   ngOnInit() {
-  this.getAuthors();
-  this. getAuthor();
+ /*  this.getAuthors();
+  this. getAuthor(); */
   }
 
   newFormAuthor(): FormGroup {
@@ -40,7 +40,7 @@ export class AuthorComponent implements OnInit {
   }
 
 
-
+/* 
 
   getAuthors(): void {
 
@@ -48,7 +48,7 @@ export class AuthorComponent implements OnInit {
 
       response => {
 
-        this.authors = response['data'] as AuthorModel[];
+        this.authors = response.data' ;
       },
 
       error => {
@@ -133,6 +133,6 @@ export class AuthorComponent implements OnInit {
   }
   get codeField(){
     return this.formAuthor.controls['code']
-  }
+  } */
 }
 

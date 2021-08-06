@@ -28,12 +28,12 @@ export class AuthorHttpService {
     return this.httpClient.post(url, author)
   }
 
-  update(id: number, author: AuthorModel) {
+  update(id: number| undefined, author: AuthorModel ) {
     const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/1/authors/' + id;
     return this.httpClient.put(url, author)
   }
 
-  delete(id: number) {
+  delete(id: number | undefined) {
     const url = 'http://backend-andrade-rivera.test/api/v1/public/projects/1/authors/' + id;
     return this.httpClient.delete(url)
   }

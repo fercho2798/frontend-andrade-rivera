@@ -1,46 +1,63 @@
-<p>project works!</p>
-<!-- Formulario Reactivo -->
-{{formProject.value | json}}
+
 <br>
 
 
 <p-card>
     <ng-template pTemplate="header">
-        Formulario Reactivo xd
+        Proyectos Cheveres
     </ng-template>
-    <div class="p-fluid">
-        <form [formGroup]="formProject" (ngSubmit)="onSubmit">
-            <div class="p-field">
-                <label for="id">ID:</label>
-                <input pInputText type="text" id="id" formControlName="id">
-            </div>
-            <div class="p-field">
-                <label for="code">Code:</label>
-                <input pInputText type="text" id="code" formControlName="code">
-                <div *ngIf="codeField.invalid && (codeField.touched || codeField.dirty)">
-                    <small *ngIf="codeField.errors?.required" class="p-error">
-                        EL campo es requerido
-                    </small>
-                    <small *ngIf="codeField.errors?.maxlength" class="p-error">
-                        Maximo de caracteres es 5
-                    </small>
-                    <small *ngIf="codeField.errors?.minlength" class="p-error">
-                        Minimo de caracteres es 3
-                    </small>
+    <div class="p-fluid ">
+        <form [formGroup]="formProject" (ngSubmit)="onSubmit(formProject.value) ">
+            <div class="formgrid grid">
+                <div class="p-field lx:col-6 lg:col-6 md:col-4 sm:col-12">
+                    <label for="id">ID:</label>
+                    <input pInputText type="text" id="id" formControlName="id">
+                </div>
+                <div class="p-field lx:col-6 lg:col-6 md:col-4 sm:col-12">
+                    <label for="code">Code:</label>
+                    <input pInputText type="text" id="code" formControlName="code">
+                    <div *ngIf="codeField.invalid && (codeField.touched || codeField.dirty)">
+                        <small *ngIf="codeField.errors?.required" class="p-error">
+                            EL campo es requerido
+                        </small>
+                        <small *ngIf="codeField.errors?.maxlength" class="p-error">
+                            Maximo de caracteres es 5
+                        </small>
+                        <small *ngIf="codeField.errors?.minlength" class="p-error">
+                            Minimo de caracteres es 3
+                        </small>
+                    </div>
                 </div>
             </div>
-            <div class="p-field">
-                <label for="date">Date:</label>
-                <input pInputText type="text" id="date" formControlName="date">
+            <div class="formgrid grid">
+
+                <div class="p-field lx:col-2 lg:col-2 md:col-6 sm:col-12">
+                    <label for="date">Date:</label>
+                    <p-calendar  id="date" formControlName="date" dateFormat="yy-mm-dd"></p-calendar>
+                    <div *ngIf="descriptionField.invalid && (descriptionField.touched || descriptionField.dirty)">
+                        <small *ngIf="descriptionField.errors?.required" class="p-error">
+                            EL campo es requerido
+                        </small>
+                    </div>
+                </div>
+                <div class="p-field lx:col-10 lg:col-10 md:col-6 sm:col-12">
+                    <label for="description">description:</label>
+                    <input pInputText type="text" id="description" formControlName="description">
+                    <div *ngIf="descriptionField.invalid && (descriptionField.touched || descriptionField.dirty)">
+                        <small *ngIf="descriptionField.errors?.required" class="p-error">
+                            EL campo es requerido
+                        </small>
+                    </div>
+                </div>
+
+             
             </div>
-            <div class="p-field">
-                <label for="description">description:</label>
-                <input pInputText type="text" id="description" formControlName="description">
+            <div class="p-field lx:col-4  lg:col-4 md:col-6 sm:col-12">
+                <button pButton type="submit" label="Guardar" icon="pi pi-save"
+                    (click)="onSubmit(formProject.value)">
+                </button>
             </div>
-     
-            <div class="p-field">
-                <button pButton type="submit" label="Guardar" icon="pi pi-save" (click)="onSubmit()"> </button>
-            </div>
+
         </form>
     </div>
 
@@ -72,9 +89,8 @@
         </td>
         <td>
             <button pButton type="button" label="Mostrar" (click)="selectProject(project)"></button>
-            <button pButton type="button" label="eliminar" class="p-button-danger" (click)="deleteProject(project)"></button>
-            <button pButton type="button" label="modificar" class="p-button-warning"
-                (click)="updateProject(project)"></button>
+            <button pButton type="button" label="eliminar" class="p-button-danger"
+                (click)="deleteProject(project)"></button>
         </td>
     </tr>
 
