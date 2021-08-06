@@ -15,6 +15,8 @@ import {SlideMenuModule} from 'primeng/slidemenu';
 import {CardModule} from 'primeng/card';
 import {StepsModule} from 'primeng/steps';
 import {CalendarModule} from 'primeng/calendar';
+import {TableModule} from 'primeng/table';
+
 
 
 
@@ -57,7 +59,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CalendarModule
+    CalendarModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
